@@ -19,5 +19,4 @@ public class Controller {
     public String addProduct(@RequestBody Product product) {
        return productService.addProduct(product);
     }
-
 }
