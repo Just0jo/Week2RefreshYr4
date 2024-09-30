@@ -11,7 +11,7 @@ import jakarta.validation.constraints.Positive;
 @AllArgsConstructor
 @Data
 public class Product {
-    @NotNull(message = "Name cannot be null")
+    @NotNull(message = "id cannot be null")
     private int id;
 
     @NotNull(message = "Name cannot be null")
