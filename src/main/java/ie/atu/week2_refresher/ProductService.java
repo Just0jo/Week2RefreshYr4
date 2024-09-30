@@ -16,14 +16,17 @@ public class ProductService {
         return "updated";
     }
 
-    public String updateProduct(Long id, Product updatedProduct) {
-        for (int i = 0; i < productList.size(); i++) {
-            Product product = productList.get(i);
-            return "updated";
+    public Product updateProduct(int id, Product updatedProduct) {
+        for (Product product : productList) {
+            if (product.getId() == id) {
+                product.setName(updatedProduct.getName());
+                product.setPrice(updatedProduct.getPrice());
+                return product;
+            }
         }
         return null;
     }
-        public boolean deleteProduct(Long id) {
+        public boolean deleteProduct(int id) {
             return productList.removeIf(product -> product.getId().equals(id));
     }
 }

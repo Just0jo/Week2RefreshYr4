@@ -28,15 +28,20 @@ public class Controller {
     }
 
 
-    @PutMapping("/id")
-    public String updateProduct(@PathVariable Long id, @RequestBody Product updatedProduct) {
-        return productService.updateProduct(id, updatedProduct);
+    @PutMapping("/PostUpdate")
+      public Product updateProduct(@PathVariable int id, @RequestBody Product updatedProduct) {
+        Product product = productService.updateProduct(id, updatedProduct);
+            return product;
 
     }
-    @DeleteMapping("/id")
-    public boolean deleteProduct(@PathVariable Long id) {
-        return  productService.deleteProduct(id);
-
+    @DeleteMapping("/PostDelete")
+    public String deleteProduct(@PathVariable int id) {
+        boolean isRemoved = productService.deleteProduct(id);
+        if (isRemoved) {
+            return "Product deleted";
+        } else {
+            return "Product not found";
+        }
     }
 
 }
