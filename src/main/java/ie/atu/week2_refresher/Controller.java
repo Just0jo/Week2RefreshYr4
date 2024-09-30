@@ -1,4 +1,5 @@
 package ie.atu.week2_refresher;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,13 +29,13 @@ public class Controller {
     }
 
 
-    @PutMapping("/PostUpdate")
-      public Product updateProduct(@PathVariable int id, @RequestBody Product updatedProduct) {
+    @PutMapping("/PostUpdate/{id}")
+      public Product updateProduct(@PathVariable int id, @RequestBody @Valid Product updatedProduct) {
         Product product = productService.updateProduct(id, updatedProduct);
             return product;
 
     }
-    @DeleteMapping("/PostDelete")
+    @DeleteMapping("/PostDelete/{id}")
     public String deleteProduct(@PathVariable int id) {
         boolean isRemoved = productService.deleteProduct(id);
         if (isRemoved) {

@@ -12,7 +12,7 @@ import jakarta.validation.constraints.Positive;
 @Data
 public class Product {
     @NotNull(message = "Name cannot be null")
-    private Long id;
+    private int id;
 
     @NotNull(message = "Name cannot be null")
     private String name;

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 @Service
 public class ProductService {
-    private List<Product> productList = new ArrayList<>();
+    private final  List<Product> productList = new ArrayList<>();
 
     public List<Product> getAllProducts() {
         return productList;
@@ -27,7 +27,8 @@ public class ProductService {
         return null;
     }
         public boolean deleteProduct(int id) {
-            return productList.removeIf(product -> product.getId().equals(id));
+
+            return productList.removeIf(product -> product.getId() == id);
     }
 }
 
