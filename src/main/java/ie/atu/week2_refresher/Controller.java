@@ -17,14 +17,27 @@ public class Controller {
 
 
     @GetMapping("/ProductGet")
-    public List<Product> getProductList()
-    {
+    public List<Product> getProductList() {
         return productService.getAllProducts();
 
     }
-    @PostMapping("ProductPost")
+
+    @PostMapping("/ProductPost")
     public String addProduct(@RequestBody Product product) {
-       return productService.addProduct(product);
+        return productService.addProduct(product);
+    }
+
+
+    @PutMapping("/id")
+    public String updateProduct(@PathVariable Long id, @RequestBody Product updatedProduct) {
+        return productService.updateProduct(id, updatedProduct);
 
     }
+    @DeleteMapping("/id")
+    public boolean deleteProduct(@PathVariable Long id) {
+        return  productService.deleteProduct(id);
+
+    }
+
 }
+
