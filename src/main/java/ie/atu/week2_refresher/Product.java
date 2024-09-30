@@ -4,11 +4,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 public class Product {
-    private int id;
+    private Long id;
+
+    @NotNull(message = "Name cannot be null")
     private String name;
-    private double price;
+
+    @Positive(message = "Price must be positive")
+    private Double price;
 }
